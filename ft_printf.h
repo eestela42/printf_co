@@ -23,21 +23,21 @@ typedef struct		s_list
 	char buf[BUFFER_SIZE];
 	int buf_i;
 	int ret_value;
-	int diese;
+	int sharp;
 	char zero;
 	int plus;
-	int moins;
+	int minus;
 	int space;
-	int taille;
+	int width;
 	int preci;
 }					oneforall;
 
-int					putstr(oneforall *lst, va_list ap);
+int					printstr(oneforall *lst, va_list ap);
 int					print_nbr(oneforall *lst, va_list ap);
-int					putint(oneforall *lst, va_list ap);
-int					putunsi(oneforall *lst, va_list ap);
-int					puthexmin(oneforall *lst, va_list ap);
-int					puthexmaj(oneforall *lst, va_list ap);
+int					printint(oneforall *lst, va_list ap);
+int					printunsi(oneforall *lst, va_list ap);
+int					printhexmin(oneforall *lst, va_list ap);
+int					printhexmaj(oneforall *lst, va_list ap);
 
 void				new_buf(oneforall *lst);
 void				initlst(oneforall *lst, char *form);
@@ -53,9 +53,8 @@ int width(oneforall *lst, va_list ap);
 int preci(oneforall *lst, va_list ap);
 int zero(oneforall *lst, va_list ap);
 int heytoile(oneforall *lst, va_list ap);
-int moins(oneforall *lst, va_list ap);
 int pourcent(oneforall *lst, va_list ap);
-int plus(oneforall *lst, va_list ap);
+int sign(oneforall *lst, va_list ap);
 void resetlst(oneforall *lst);
 void hex_convert(unsigned long long nb, int base, oneforall *lst);
 

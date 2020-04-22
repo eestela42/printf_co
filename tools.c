@@ -21,21 +21,21 @@ void initlst(oneforall *lst, char *form)
 {
 	lst->pos = 0;
 	lst->form = form;
-	lst->diese = 0;
+	lst->sharp = 0;
 	lst->zero = ' ';
-	lst->moins = 0;
+	lst->minus = 0;
 	lst->space = 0;
-	lst->taille = 0;
+	lst->width = 0;
 	lst->preci = -1;
 	lst->ret_value = 0;
 }
 
 void resetlst(oneforall *lst)
 {
-	lst->diese = 0;
+	lst->sharp = 0;
 	lst->zero = ' ';
-	lst->moins = 0;
+	lst->minus = 0;
 	lst->space = 0;
-	lst->taille = 0;
+	lst->width = 0;
 	lst->preci = -1;
 }

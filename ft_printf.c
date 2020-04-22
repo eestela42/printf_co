@@ -34,9 +34,9 @@ int pourc (oneforall *lst, va_list ap, int (*p[])(oneforall *lst, va_list ap))
 	i = 0;
 	while (i <= 128)
 		p[i++] = skip;
-	p['s'] = putstr;
-	p['d'] = putint;
-	p['i'] = putint;
+	p['s'] = printstr;
+	p['d'] = printint;
+	p['i'] = printint;
 	p['c'] = char_buf;
 	p['p'] = print_po;
 	p['0'] = zero;
@@ -45,11 +45,11 @@ int pourc (oneforall *lst, va_list ap, int (*p[])(oneforall *lst, va_list ap))
 		p[i++] = width;
 	p['.'] = preci;
 	p['*'] = heytoile;
-	p['-'] = moins;
+	p['-'] = sign;
 	p['%'] = pourcent;
-	p['+'] = plus;
-	p['x'] = puthexmin;
-	p['X'] = puthexmaj;
+	p['+'] = sign;
+	p['x'] = printhexmin;
+	p['X'] = printhexmaj;
 }
 
 int	ft_printf(char *form, ...)
