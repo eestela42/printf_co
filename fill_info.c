@@ -11,7 +11,7 @@ int heytoile(oneforall *lst, va_list ap)
         lst->minus = 1;
     }
     else if (i == 0)
-        lst->zero = 1;
+        lst->zero = '0';
     lst->width = i;
     return(0);
 }
@@ -57,7 +57,7 @@ int flags(oneforall *lst, va_list ap)
     while(str[i] == '0' || str[i] == '+' || str[i] == '-' || str[i] == '#')
     {
         if (str[i] == '0')
-            lst->zero = 1;
+            lst->zero = '0';
         else if (str[i] == '-')
             lst->minus = 1;
         else if (str[i] == '+')
