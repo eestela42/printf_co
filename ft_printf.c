@@ -27,7 +27,7 @@ int pourc (oneforall *lst, va_list ap, int (*p[])(oneforall *lst, va_list ap))
 	return (0);
 }
 
-	init_p(int (*p[128]) (oneforall *lst, va_list ap))
+void	init_p(int (*p[128]) (oneforall *lst, va_list ap))
 {
 	int i;
 
@@ -52,7 +52,7 @@ int pourc (oneforall *lst, va_list ap, int (*p[])(oneforall *lst, va_list ap))
 	p['X'] = printhexmaj;
 }
 
-int	ft_printf(char *form, ...)
+int		ft_printf(char *form, ...)
 {
 	int (*p[128]) (oneforall *lst, va_list ap);
 	va_list ap;
@@ -64,6 +64,7 @@ int	ft_printf(char *form, ...)
 	va_start(ap, form);
 	lst->pos = 0;
 	new_buf(lst);
+	init_p(p);
 	while (form[lst->pos])
 	{
 		if (form[lst->pos] == '%')

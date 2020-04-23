@@ -1,7 +1,24 @@
 #include "ft_printf.h"
 
+int heytoile(oneforall *lst, va_list ap)
+{
+    int i;
+
+    i = va_arg(ap, int);
+    if (i < 0)
+    {
+        i = -i;
+        lst->minus = 1;
+    }
+    else if (i == 0)
+        lst->zero = 1;
+    lst->width = i;
+    return(0);
+}
+
 int width(oneforall *lst, va_list ap)
 {
+    (void)ap;
     while('0' >= lst->form[lst->pos] <= '9')
     {
             lst->width = 10 * lst->width +
@@ -34,6 +51,7 @@ int flags(oneforall *lst, va_list ap)
     int i;
     char *str;
 
+    (void)ap;
     i = lst->pos;
     str = lst->form;
     while(str[i] == '0' || str[i] == '+' || str[i] == '-' || str[i] == '#')
