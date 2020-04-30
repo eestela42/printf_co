@@ -54,11 +54,11 @@ char *uppercase(char *str)
 
 int puthexmaj(oneforall *lst, va_list ap)
 {
-	 long long int nb;
+	long long int nb;
 
 	nb = va_arg(ap, long long int);
-	convert_base(nb, "0123456789ABCDEF", lst)
-	return 1;
+	convert_base(nb, "0123456789ABCDEF", lst);
+	return (1);
 }
 
 int puthexmin(oneforall *lst, va_list ap)
@@ -77,15 +77,13 @@ int putint(oneforall *lst, va_list ap)
 	int minus;
 
 	nb =  va_arg(ap, int);
+	minus = 0;
 	if (nb < 0)
 	{
 		minus = 1;
 		nb *= -1;
 	}
-	else
-		minus = 0;
 	nbchar = get_int_size(nb);
-	
 	if (!lst->minus)
 	{
 		if(lst->zero == '0')

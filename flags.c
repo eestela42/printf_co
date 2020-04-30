@@ -15,7 +15,7 @@
 int moins(oneforall *lst, va_list ap)
 {
 	(void)ap;
-	lst->moins = 1;
+	lst->minus = 1;
 	return (0);
 }
 
@@ -38,7 +38,7 @@ int space(oneforall *lst, va_list ap)
 int diese(oneforall *lst, va_list ap)
 {
 	(void)ap;
-	lst->diese = 1;
+	lst->sharp = 1;
 	return (0);
 }
 
@@ -56,15 +56,14 @@ int pourcent(oneforall *lst, va_list ap)
 		check--;
 	}
 	i = 1;
-	if (lst->moins)
+	if (lst->minus)
 		ft_putchar(lst, '%');
-	
-	while (i < lst->taille)
+	while (i < lst->width)
 	{
 		ft_putchar(lst, lst->zero);
 		i++;
 	}
-	if (!lst->moins)
+	if (!lst->minus)
 		ft_putchar(lst, '%');
 	return (1);
 }

@@ -1,10 +1,10 @@
 
 CC = gcc
 FLAGS = -Wall -Wextra -Werror
-SRC = flags.c	\
+SRC = print_nbr.c	\
 	  hex_convert.c	\
 	  print_cs.c	\
-	  print_nbr.c	\
+	  flags.c		\
 	  width.c		\
 	  print_po.c	\
 	  printf.c		\

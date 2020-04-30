@@ -47,8 +47,8 @@ int	putstr(oneforall *lst, va_list ap)
 	i = -1;
 	size = 0;
 	str = va_arg(ap, char *);
-	if (str == NULL)
-		str = lst->nul;
+	//if (str == NULL)
+	//	str = lst->nul; //whatisthis
 	while(str[size])
 		size++;
 	if (lst->preci > size)

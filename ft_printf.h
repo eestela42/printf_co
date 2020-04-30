@@ -58,6 +58,6 @@ int heytoile(oneforall *lst, va_list ap);
 int pourcent(oneforall *lst, va_list ap);
 int sign(oneforall *lst, va_list ap);
 void resetlst(oneforall *lst);
-void convert_base(unsigned long long nb, int base, oneforall *lst);
+void convert_base(unsigned long long int nb, char *table, oneforall *lst);
 
 void spacing(int nbchar, oneforall *lst, int minus);
