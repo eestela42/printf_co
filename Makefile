@@ -1,7 +1,7 @@
 
 CC = gcc
 FLAGS = -Wall -Wextra -Werror
-SRC = print_nbr.c	\
+SRC = nbr_tools.c	\
 	  hex_convert.c	\
 	  print_cs.c	\
 	  flags.c		\
