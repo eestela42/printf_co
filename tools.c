@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-void new_buf(oneforall *lst)
+void	new_buf(oneforall *lst)
 {
 	int i;
 
@@ -9,7 +9,7 @@ void new_buf(oneforall *lst)
 		lst->buf[i++] = 0;
 }
 
-int skip(oneforall *lst, va_list ap)
+int		skip(oneforall *lst, va_list ap)
 {
 	if (lst->form[lst->pos] == ' ')
 		lst->space = 1;
@@ -17,7 +17,7 @@ int skip(oneforall *lst, va_list ap)
 	return (0);
 }
 
-void initlst(oneforall *lst, char *form)
+void	initlst(oneforall *lst, char *form)
 {
 	lst->pos = 0;
 	lst->form = form;
@@ -30,7 +30,7 @@ void initlst(oneforall *lst, char *form)
 	lst->ret_value = 0;
 }
 
-void resetlst(oneforall *lst)
+void	resetlst(oneforall *lst)
 {
 	lst->sharp = 0;
 	lst->zero = ' ';
@@ -38,4 +38,14 @@ void resetlst(oneforall *lst)
 	lst->space = 0;
 	lst->width = 0;
 	lst->preci = -1;
+}
+
+int		ft_strlen(char *s)
+{
+	int i;
+
+	i = 0;
+	while(s[i])
+		i++;
+	return(i);
 }

@@ -29,11 +29,11 @@ int char_buf(oneforall *lst, va_list ap)
 
 	i = 0;
 	c = va_arg(ap, int);
-	if (lst->moins)
+	if (lst->minus)
 		ft_putchar(lst, c);
-	while (i++ < lst->taille - 1)
+	while (i++ < lst->width - 1)
 		ft_putchar(lst, lst->zero);
-	if (!lst->moins)
+	if (!lst->minus)
 		ft_putchar(lst, c);
 	return 1;
 }
@@ -57,10 +57,10 @@ int	putstr(oneforall *lst, va_list ap)
 		lst->preci = size;
 //	printf("taille : %d\n", lst->taille);
 	//printf("preci  : %d\n", lst->preci);
-	if (lst->moins)
+	if (lst->minus)
 		while(str[++i] && i < lst->preci)
 			ft_putchar(lst, str[i]);
-	while (lst->taille-- > lst->preci)
+	while (lst->width-- > lst->preci)
 	{
 	//printf("%d\n", lst->taille);
 //	printf("taille : %d\n", lst->taille);
@@ -68,7 +68,7 @@ int	putstr(oneforall *lst, va_list ap)
 		ft_putchar(lst, ' ');
 	//	printf("dwqdqw\n");
 	}
-	if (!lst->moins)
+	if (!lst->minus)
 		while(str[++i] && lst->preci--)
 			ft_putchar(lst, str[i]);
 	return 1;

@@ -18,18 +18,18 @@
 
 typedef struct		s_list
 {
-	int pos;
-	char *form;
-	char buf[BUFFER_SIZE];
-	int buf_i;
-	int ret_value;
-	int sharp;
-	char zero;
-	int plus;
-	int minus;
-	int space;
-	int width;
-	int preci;
+	int		pos;
+	char	*form;
+	char	buf[BUFFER_SIZE];
+	int		buf_i;
+	int		ret_value;
+	int		sharp;
+	char	zero;
+	int		plus;
+	int		minus;
+	int		space;
+	int		width;
+	int		preci;
 }					oneforall;
 
 int					printstr(oneforall *lst, va_list ap);
@@ -44,7 +44,9 @@ void				initlst(oneforall *lst, char *form);
 void				resetlst(oneforall *lst);
 int					skip(oneforall *lst, va_list ap);
 
-void ft_putchar(oneforall *lst, char c);
+int					ft_strlen(char *s);
+int					get_int_size(int nb);
+void				ft_putchar(oneforall *lst, char c);
 void buf_print(char *s, oneforall *lst);
 void new_buf(oneforall *lst);
 int char_buf(oneforall *lst, va_list ap);
@@ -56,6 +58,6 @@ int heytoile(oneforall *lst, va_list ap);
 int pourcent(oneforall *lst, va_list ap);
 int sign(oneforall *lst, va_list ap);
 void resetlst(oneforall *lst);
-void hex_convert(unsigned long long nb, int base, oneforall *lst);
+void convert_base(unsigned long long nb, int base, oneforall *lst);
 
 void spacing(int nbchar, oneforall *lst, int minus);
