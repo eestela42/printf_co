@@ -19,7 +19,7 @@ void convert_base(unsigned long long int nb, char *table, oneforall *lst)
 	i = 0;
 	base = ft_strlen(table);
 	if (nb == 0)
-		lst->buf[lst->buf_i++] = '0'; //si on est a la fin du buf ?
+		lst->buf[lst->buf_i++] = '0';
 	while (tmp > 0)
 	{
 		i++;
