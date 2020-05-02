@@ -41,7 +41,7 @@ void	nbr_to_buf(t_oneforall *lst, t_int a, int base_size, char *base)
 	if (a.sign)
 		a.size--;
 	lst->buf[a.size] = 0;
-	if (a.nbr = 0)
+	if (a.nbr == 0)
 		lst->buf[0] = '0';
 	while (a.nbr)
 	{
