@@ -13,7 +13,7 @@
 #include <stdio.h>
 #include "ft_printf.h"
 
-int pourc (oneforall *lst, va_list ap, int (*p[])(oneforall *lst, va_list ap))
+int pourc (t_oneforall *lst, va_list ap, int (*p[])(t_oneforall *lst, va_list ap))
 {
 	while (lst->form[lst->pos])
 	{
@@ -27,7 +27,7 @@ int pourc (oneforall *lst, va_list ap, int (*p[])(oneforall *lst, va_list ap))
 	return (0);
 }
 
-void	init_p(int (*p[128]) (oneforall *lst, va_list ap))
+void	init_p(int (*p[128]) (t_oneforall *lst, va_list ap))
 {
 	int i;
 
@@ -54,11 +54,11 @@ void	init_p(int (*p[128]) (oneforall *lst, va_list ap))
 
 int		ft_printf(char *form, ...)
 {
-	int (*p[128]) (oneforall *lst, va_list ap);
+	int (*p[128]) (t_oneforall *lst, va_list ap);
 	va_list ap;
-	oneforall *lst;
+	t_oneforall *lst;
 
-	if (!(lst = malloc(sizeof(oneforall))))
+	if (!(lst = malloc(sizeof(t_oneforall))))
 		return (0);
 	initlst(lst, form);
 	va_start(ap, form);
@@ -73,7 +73,6 @@ int		ft_printf(char *form, ...)
 			ft_putchar(lst, form[lst->pos]);
 		lst->pos++;
 	}
-	buf_print(lst->buf, lst);
 	va_end(ap);
 	return (lst->ret_value);
 }

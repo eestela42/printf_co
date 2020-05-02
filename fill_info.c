@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-int heytoile(oneforall *lst, va_list ap)
+int heytoile(t_oneforall *lst, va_list ap)
 {
     int i;
 
@@ -16,7 +16,7 @@ int heytoile(oneforall *lst, va_list ap)
     return(0);
 }
 
-int width(oneforall *lst, va_list ap)
+int width(t_oneforall *lst, va_list ap)
 {
     (void)ap;
     while('0' >= lst->form[lst->pos] <= '9')
@@ -27,7 +27,7 @@ int width(oneforall *lst, va_list ap)
     return(0);
 }
 
-int preci(oneforall *lst, va_list ap)
+int preci(t_oneforall *lst, va_list ap)
 {
     if (lst->form[++lst->pos] == '*')
     {
@@ -46,7 +46,7 @@ int preci(oneforall *lst, va_list ap)
     return(0);
 }
 
-int flags(oneforall *lst, va_list ap)
+int flags(t_oneforall *lst, va_list ap)
 {
     int i;
     char *str;
@@ -54,7 +54,7 @@ int flags(oneforall *lst, va_list ap)
     (void)ap;
     i = lst->pos;
     str = lst->form;
-    while(str[i] == '0' || str[i] == '+' || str[i] == '-' || str[i] == '#')
+    while(str[i] == '0' || str[i] == '+' || str[i] == '-' || str[i] == '#' || str[i] == ' ')
     {
         if (str[i] == '0')
             lst->zero = '0';
@@ -62,6 +62,8 @@ int flags(oneforall *lst, va_list ap)
             lst->minus = 1;
         else if (str[i] == '+')
             lst->plus = 1;
+        else if (str[i] == ' ')
+            lst->space = 1;
         else
             lst->sharp =1;
         i++;

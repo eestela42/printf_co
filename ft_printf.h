@@ -16,12 +16,12 @@
 #include <stdarg.h>
 #define BUFFER_SIZE 1024
 
-typedef struct		s_list
+typedef struct		s_oneforall
 {
 	int		pos;
-	char	*form;
+	int		buff_i;
 	char	buf[BUFFER_SIZE];
-	int		buf_i;
+	char	*form;
 	int		ret_value;
 	int		sharp;
 	char	zero;
@@ -30,34 +30,54 @@ typedef struct		s_list
 	int		space;
 	int		width;
 	int		preci;
-}					oneforall;
+}					t_oneforall;
 
-int					printstr(oneforall *lst, va_list ap);
-int					print_nbr(oneforall *lst, va_list ap);
-int					printint(oneforall *lst, va_list ap);
-int					printunsi(oneforall *lst, va_list ap);
-int					printhexmin(oneforall *lst, va_list ap);
-int					printhexmaj(oneforall *lst, va_list ap);
+typedef	struct		s_int
+{
+	int		nbr;
+	char	sign;
+	int		size;
+	int 	to_width;
+	int		to_preci;
+}					t_int;
 
-void				new_buf(oneforall *lst);
-void				initlst(oneforall *lst, char *form);
-void				resetlst(oneforall *lst);
-int					skip(oneforall *lst, va_list ap);
+
+int					printstr(t_oneforall *lst, va_list ap);
+int					print_nbr(t_oneforall *lst, va_list ap);
+int					printint(t_oneforall *lst, va_list ap);
+int					printunsi(t_oneforall *lst, va_list ap);
+int					printhexmin(t_oneforall *lst, va_list ap);
+int					printhexmaj(t_oneforall *lst, va_list ap);
+
+void				new_buf(t_oneforall *lst);
+void				initlst(t_oneforall *lst, char *form);
+void				resetlst(t_oneforall *lst);
+int					skip(t_oneforall *lst, va_list ap);
+
+char				signer(int nbr, t_oneforall *lst);
+int					sizer(int nbr, int sign, int base);
+int					precier(t_oneforall *lst, int size);
+int					widther(t_oneforall *lst, int size);
+void				nbr_to_buf(t_oneforall *lst, t_int a, int base_size,
+					char *base);
+
+void				print_width(int width, t_oneforall *lst);
+void				print_preci(int preci, t_oneforall *lst);
 
 int					ft_strlen(char *s);
 int					get_int_size(int nb);
-void				ft_putchar(oneforall *lst, char c);
-void buf_print(char *s, oneforall *lst);
-void new_buf(oneforall *lst);
-int char_buf(oneforall *lst, va_list ap);
-int print_po(oneforall *lst, va_list ap);
-int width(oneforall *lst, va_list ap);
-int preci(oneforall *lst, va_list ap);
-int zero(oneforall *lst, va_list ap);
-int heytoile(oneforall *lst, va_list ap);
-int pourcent(oneforall *lst, va_list ap);
-int sign(oneforall *lst, va_list ap);
-void resetlst(oneforall *lst);
-void convert_base(unsigned long long int nb, char *table, oneforall *lst);
+void				ft_putchar(t_oneforall *lst, char c);
+void buf_print(char *s, t_oneforall *lst);
+void new_buf(t_oneforall *lst);
+int char_buf(t_oneforall *lst, va_list ap);
+int print_po(t_oneforall *lst, va_list ap);
+int width(t_oneforall *lst, va_list ap);
+int preci(t_oneforall *lst, va_list ap);
+int zero(t_oneforall *lst, va_list ap);
+int heytoile(t_oneforall *lst, va_list ap);
+int pourcent(t_oneforall *lst, va_list ap);
+int sign(t_oneforall *lst, va_list ap);
+void resetlst(t_oneforall *lst);
+void convert_base(unsigned long long int nb, char *table, t_oneforall *lst);
 
-void spacing(int nbchar, oneforall *lst, int minus);
+void spacing(int nbchar, t_oneforall *lst, int minus);

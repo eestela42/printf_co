@@ -1,63 +1,54 @@
 #include "ft_printf.h"
 
-int printint(oneforall *lst, va_list ap)
+static int		widther(t_oneforall *lst, int size)
 {
-	int nb;
-	int nbchar;
-	int minus;
-
-	nb =  va_arg(ap, int);
-	minus = 0;
-	if (nb < 0)
+	if (lst->zero == '0' && lst->preci > lst->width && !lst->minus)
 	{
-		minus = 1;
-		nb *= -1;
+		lst->preci = lst->width;
+		lst->width = 0;
 	}
-	nbchar = get_int_size(nb);
-	if (!lst->minus)
-	{
-		if(lst->zero == '0')
-			lst->buf[lst->buf_i++] = '-';
-		spacing(nbchar, lst, minus);
-			if(lst->zero == '0')
-				minus = 0;
-	}
-	if (lst->plus && !minus)
-		ft_putchar(lst, '+');
-	else if (lst->space && !minus)
-		ft_putchar(lst, ' ');
-	insert_preci(calc_preci(lst->preci, nbchar, minus), lst, minus);
-	if (nb == -2147483648)
-		convert_base(2147483648, "0123456789", lst);
-	else
-		convert_base(nb, "0123456789", lst);
-	if (lst->minus)
-		spacing(nbchar, lst, minus);
-	return (1);
+	if (lst->preci || lst->minus)
+		lst->zero = ' ';
+	if (lst->width - lst->preci > 0)
+		return (lst->width - lst->preci);
+	return (0);
 }
 
-int printunsi(oneforall *lst, va_list ap)
+static int		negation(int nbr)
 {
-	unsigned int nb;
-	int nbchar;
-	int minus;
+	if (nbr > 0)
+		return (-nbr);
+	return (nbr);
+}
 
-	minus = 0;
-	nb = va_arg(ap, unsigned int);
-	nbchar = get_int_size(nb);
+static void		int_printer(t_oneforall *lst, t_int a)
+{
+	int i;
+
+	i = 0;
 	if (!lst->minus)
+		print_width(a.to_width, lst);
+	if (a.sign)
 	{
-		if(lst->zero == '0')
-			lst->buf[lst->buf_i++] = '-';
-		spacing(nbchar, lst, minus);
+		write(1, &a.sign, 1);
+		lst->ret_value++;
 	}
-	if (lst->plus && !minus)
-		ft_putchar(lst, '+');
-	else if (lst->space && !minus)
-		ft_putchar(lst, ' ');
-	insert_preci(calc_preci(lst->preci, nbchar, minus), lst, minus);
-	convert_base(nb, 10, lst);
+	print_preci(a.to_preci, lst);
+	print_buf(lst);
 	if (lst->minus)
-		spacing(nbchar, lst, minus);
-	return (1);
+		print_width(a.to_width, lst);
+}
+
+int				printint(t_oneforall *lst, va_list ap)
+{
+	t_int	a;
+
+	a.nbr = va_arg(ap, int);
+	a.sign = signer(a.nbr, lst);
+	a.nbr = negation(a.nbr);
+	a.size = sizer(a.nbr, sign, 10);
+	a.to_width = widther(lst, a.to_preci);
+	a.to_preci = precier(lst, a.size);
+	nbr_to_buf(lst, a, 10, "0123456789");
+	int_printer(lst, a);
 }
