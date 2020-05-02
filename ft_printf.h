@@ -51,6 +51,8 @@ int					printunsi(t_oneforall *lst, va_list ap);
 int					printhexmin(t_oneforall *lst, va_list ap);
 int					printhexmaj(t_oneforall *lst, va_list ap);
 
+int 				flags(t_oneforall *lst, va_list ap);
+
 void				new_buf(t_oneforall *lst);
 void				initlst(t_oneforall *lst, char *form);
 void				resetlst(t_oneforall *lst);
@@ -70,6 +72,7 @@ void				print_buf(t_oneforall *lst);
 int					ft_strlen(char *s);
 int					get_int_size(int nb);
 void				ft_putchar(char c);
+
 void buf_print(char *s, t_oneforall *lst);
 void new_buf(t_oneforall *lst);
 int char_buf(t_oneforall *lst, va_list ap);

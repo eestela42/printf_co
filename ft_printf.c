@@ -50,9 +50,9 @@ void	init_p(int (*p[128]) (t_oneforall *lst, va_list ap))
 		p[i++] = width;
 	p['.'] = preci;
 	p['*'] = heytoile;
-	p['-'] = sign;
+	p['-'] = flags;
 	p['%'] = pourcent;
-	p['+'] = sign;
+	p['+'] = flags;
 	//p['x'] = printhexmin;
 	//p['X'] = printhexmaj;
 }
