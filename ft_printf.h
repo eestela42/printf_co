@@ -19,7 +19,7 @@
 typedef struct		s_oneforall
 {
 	int		pos;
-	int		buff_i;
+	int		buf_i;
 	char	buf[BUFFER_SIZE];
 	char	*form;
 	int		ret_value;
