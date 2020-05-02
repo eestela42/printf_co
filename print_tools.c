@@ -1,9 +1,10 @@
 #include "ft_printf.h"
 
-void	ft_putchar(char c)
+void	ft_putchar(char a)
 {
 	write(1, &a, 1);
 }
+
 void	print_width(int width, t_oneforall *lst)
 {
 	while (width--)
