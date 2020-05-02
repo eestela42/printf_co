@@ -30,7 +30,7 @@ void	print_buf(t_oneforall *lst)
 	i = 0;
 	while (i < BUFFER_SIZE && lst->buf[i])
 	{
-		ft_putchar(lst->buf[i]);
+		ft_putchar(lst->buf[i++]);
 		lst->ret_value++;
 	}
 }
