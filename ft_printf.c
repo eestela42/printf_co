@@ -39,11 +39,11 @@ void	init_p(int (*p[128]) (t_oneforall *lst, va_list ap))
 	i = 0;
 	while (i <= 128)
 		p[i++] = skip;
-	p['s'] = printstr;
+	//p['s'] = printstr;
 	p['d'] = printint;
 	p['i'] = printint;
-	p['c'] = char_buf;
-	p['p'] = print_po;
+	//p['c'] = char_buf;
+	//p['p'] = print_po;
 	p['0'] = zero;
 	i = '1';
 	while (i <= '9')
@@ -53,8 +53,8 @@ void	init_p(int (*p[128]) (t_oneforall *lst, va_list ap))
 	p['-'] = sign;
 	p['%'] = pourcent;
 	p['+'] = sign;
-	p['x'] = printhexmin;
-	p['X'] = printhexmaj;
+	//p['x'] = printhexmin;
+	//p['X'] = printhexmaj;
 }
 
 int		ft_printf(char *form, ...)
