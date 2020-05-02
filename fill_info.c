@@ -19,7 +19,7 @@ int heytoile(t_oneforall *lst, va_list ap)
 int width(t_oneforall *lst, va_list ap)
 {
     (void)ap;
-    while('0' >= lst->form[lst->pos] <= '9')
+    while('0' >= lst->form[lst->pos] && lst->form[lst->pos] <= '9')
     {
             lst->width = 10 * lst->width +
             (lst->form[lst->pos++] - '0');
