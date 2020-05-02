@@ -41,7 +41,7 @@ void	init_p(int (*p[128]) (t_oneforall *lst, va_list ap))
 	p['p'] = print_po;
 	p['0'] = zero;
 	i = '1';
-	while (i <= '9');
+	while (i <= '9')
 		p[i++] = width;
 	p['.'] = preci;
 	p['*'] = heytoile;

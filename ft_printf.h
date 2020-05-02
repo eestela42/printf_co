@@ -42,6 +42,8 @@ typedef	struct		s_int
 }					t_int;
 
 
+int					ft_printf(char *form, ...);
+
 int					printstr(t_oneforall *lst, va_list ap);
 int					print_nbr(t_oneforall *lst, va_list ap);
 int					printint(t_oneforall *lst, va_list ap);
@@ -63,10 +65,11 @@ void				nbr_to_buf(t_oneforall *lst, t_int a, int base_size,
 
 void				print_width(int width, t_oneforall *lst);
 void				print_preci(int preci, t_oneforall *lst);
+void				print_buf(t_oneforall *lst);
 
 int					ft_strlen(char *s);
 int					get_int_size(int nb);
-void				ft_putchar(t_oneforall *lst, char c);
+void				ft_putchar(char c);
 void buf_print(char *s, t_oneforall *lst);
 void new_buf(t_oneforall *lst);
 int char_buf(t_oneforall *lst, va_list ap);

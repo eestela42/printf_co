@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-void	ft_putchar(char a)
+void	ft_putchar(char c)
 {
 	write(1, &a, 1);
 }

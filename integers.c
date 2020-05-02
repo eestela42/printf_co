@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-static int		widther(t_oneforall *lst, int size)
+int		widther(t_oneforall *lst, int size)
 {
 	if (lst->zero == '0' && lst->preci > lst->width && !lst->minus)
 	{
@@ -46,7 +46,7 @@ int				printint(t_oneforall *lst, va_list ap)
 	a.nbr = va_arg(ap, int);
 	a.sign = signer(a.nbr, lst);
 	a.nbr = negation(a.nbr);
-	a.size = sizer(a.nbr, sign, 10);
+	a.size = sizer(a.nbr, a.sign, 10);
 	a.to_width = widther(lst, a.to_preci);
 	a.to_preci = precier(lst, a.size);
 	nbr_to_buf(lst, a, 10, "0123456789");
