@@ -51,4 +51,6 @@ int				printint(t_oneforall *lst, va_list ap)
 	a.to_preci = precier(lst, a.size);
 	nbr_to_buf(lst, a, 10, "0123456789");
 	int_printer(lst, a);
+	return(lst->ret_value);
+
 }
