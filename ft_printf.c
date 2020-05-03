@@ -39,14 +39,14 @@ void	init_p(int (*p[128]) (t_oneforall *lst, va_list ap))
 	p['i'] = printint;
 	//p['c'] = char_buf;
 	//p['p'] = print_po;
-	p['0'] = zero;
+	p['0'] = flags;
 	i = '1';
 	while (i <= '9')
 		p[i++] = width;
 	p['.'] = preci;
 	p['*'] = heytoile;
 	p['-'] = flags;
-	p['%'] = pourcent;
+	//p['%'] = pourcent;
 	p['+'] = flags;
 	//p['x'] = printhexmin;
 	//p['X'] = printhexmaj;
