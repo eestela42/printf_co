@@ -55,9 +55,9 @@ void	init_p(int (*p[128]) (t_oneforall *lst, va_list ap))
 int		ft_printf(char *form, ...)
 {
 	int (*p[128]) (t_oneforall *lst, va_list ap);
-	va_list ap;
-	t_oneforall *lst;
-
+	va_list		ap;
+	t_oneforall	*lst;
+	int			i;
 	if (!(lst = malloc(sizeof(t_oneforall))))
 		return (0);
 	initlst(lst, form);
@@ -74,8 +74,9 @@ int		ft_printf(char *form, ...)
 		lst->pos++;
 	}
 	va_end(ap);
+	i = lst->ret_value;
 	free(lst);
-	return (lst->ret_value);
+	return (i);
 }
 
 
