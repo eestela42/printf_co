@@ -18,7 +18,7 @@ int main()
 
 
 	
-	t = inter("%10.8d|", 42);
+	t = inter("%d|", 42);
     printf("r = %i\nt = %i\n", r, t);
 
 }

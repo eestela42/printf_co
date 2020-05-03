@@ -13,12 +13,7 @@
 #include <stdio.h>
 #include "ft_printf.h"
 
-void 	ft_putletter(t_oneforall *lst, int c)
-{
-	lst->ret_value++;
-	write(1, &c, 1);
-}
-int 	pourc (t_oneforall *lst, va_list ap, int (*p[])(t_oneforall *lst, va_list ap))
+int 	pourc(t_oneforall *lst, va_list ap, int (*p[])(t_oneforall *lst, va_list ap))
 {
 	while (lst->form[lst->pos])
 	{
@@ -75,10 +70,11 @@ int		ft_printf(char *form, ...)
 		if (form[lst->pos] == '%')
 			pourc(lst, ap, p);
 		else
-			ft_putletter(lst, form[lst->pos]);
+			ft_putchar(lst, lst->form[lst->pos]);
 		lst->pos++;
 	}
 	va_end(ap);
+	free(lst);
 	return (lst->ret_value);
 }
 

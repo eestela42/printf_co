@@ -71,7 +71,7 @@ void				print_buf(t_oneforall *lst);
 
 int					ft_strlen(char *s);
 int					get_int_size(int nb);
-void				ft_putchar(char c);
+void				ft_putchar(t_oneforall *lst, char c);
 
 void buf_print(char *s, t_oneforall *lst);
 void new_buf(t_oneforall *lst);
